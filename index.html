@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- EDIT: replace "Your City" throughout this file (search for EDIT to find every placeholder) -->
+<title>Suittable Homes | Real estate in Your City</title>
+<meta name="description" content="Suittable Homes helps buyers and sellers in Your City. We start with what you need, then show you only the homes that fit.">
+<meta property="og:title" content="Suittable Homes">
+<meta property="og:description" content="A home should fit like it was made for you. Buying, selling and relocating in Your City.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#1F2B45">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231F2B45'/%3E%3Cpath d='M7 25V14l9-8 9 8v11z' fill='none' stroke='%23F4C430' stroke-width='2' stroke-dasharray='3 2' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Libre+Caslon+Display&display=swap" rel="stylesheet">
+
+<!-- EDIT: structured data for search engines -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  "name": "Suittable Homes",
+  "description": "Residential real estate: buying, selling and relocating.",
+  "telephone": "+1-555-555-0100",
+  "email": "lara@suittablehomes.com",
+  "areaServed": "Your City"
+}
+</script>
+
+<style>
+  :root {
+    --wool: #1F2B45;        /* navy suiting */
+    --wool-deep: #172138;
+    --chalk: #F4F6F8;       /* cool off-white */
+    --paper: #FFFFFF;
+    --tape: #F4C430;        /* measuring-tape yellow */
+    --stitch: #A9C4E0;      /* tailor's chalk blue */
+    --ink: #18202F;
+    --muted: #55607A;
+    --rule: #D5DBE3;
+    --focus: var(--wool);
+
+    --display: "Libre Caslon Display", "Big Caslon", "Book Antiqua", Georgia, serif;
+    --body: "Hanken Grotesk", "Segoe UI", system-ui, -apple-system, sans-serif;
+
+    --gutter: clamp(1.25rem, 4vw, 3rem);
+    --measure: 72rem;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    font-family: var(--body);
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--chalk);
+  }
+  img, svg { display: block; max-width: 100%; }
+  h1, h2, h3, p, ol, ul, dl, dd, fieldset { margin: 0; padding: 0; }
+  ol, ul { list-style: none; }
+  a { color: inherit; }
+
+  :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 2px; }
+
+  .skip {
+    position: absolute; left: 1rem; top: -4rem; z-index: 10;
+    background: var(--tape); color: var(--ink); padding: .6rem 1rem; border-radius: 4px;
+  }
+  .skip:focus { top: 1rem; }
+
+  .wrap { width: 100%; max-width: var(--measure); margin-inline: auto; padding-inline: var(--gutter); }
+
+  h1, h2 { font-family: var(--display); font-weight: 400; letter-spacing: -0.01em; }
+  h1 { font-size: clamp(2.75rem, 6.4vw, 5rem); line-height: 1.02; }
+  h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; }
+  h3 { font-size: 1.25rem; line-height: 1.3; font-weight: 600; }
+
+  /* Button: a stitched garment label */
+  .btn {
+    position: relative; display: inline-block;
+    padding: .95rem 1.6rem;
+    font: 600 1.0625rem/1.2 var(--body);
+    color: var(--ink); background: var(--tape);
+    border: 0; border-radius: 6px; text-decoration: none; cursor: pointer;
+  }
+  .btn::after {
+    content: ""; position: absolute; inset: 4px;
+    border: 1.5px dashed rgba(24, 32, 47, .5); border-radius: 3px; pointer-events: none;
+  }
+  .btn:hover { background: #FFD552; }
+  .btn:active { transform: translateY(1px); }
+
+  /* ---------- Wool: header + hero ---------- */
+  .wool {
+    --focus: var(--tape);
+    color: var(--chalk);
+    background-color: var(--wool);
+    background-image: repeating-linear-gradient(90deg, rgba(255,255,255,.05) 0 1px, transparent 1px 18px);
+  }
+
+  .site-header { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding-block: 1.25rem; }
+  .wordmark { display: inline-flex; align-items: center; gap: .6rem; font-family: var(--display); font-size: 1.5rem; text-decoration: none; }
+  .wordmark svg { width: 1.6rem; height: 1.6rem; }
+  .site-nav { display: flex; align-items: center; gap: 2rem; font-size: 1rem; }
+  .site-nav a:not(.btn) { text-decoration: none; }
+  .site-nav a:not(.btn):hover { text-decoration: underline; text-underline-offset: .3em; }
+  .site-nav .btn { padding: .7rem 1.1rem; font-size: 1rem; }
+
+  .hero { display: grid; gap: 2.5rem; align-items: center; padding-block: clamp(2.5rem, 6vw, 5rem) clamp(3rem, 7vw, 6rem); }
+  .hero-copy p { max-width: 34rem; margin-top: 1.5rem; font-size: 1.25rem; color: #CBD5E4; }
+  .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; margin-top: 2.25rem; }
+  .hero-actions .quiet { text-underline-offset: .3em; }
+  .pattern { width: 100%; max-width: 34rem; margin-inline: auto; }
+
+  .pattern .cut { fill: rgba(255,255,255,.03); stroke: var(--chalk); stroke-width: 1.5; stroke-linejoin: round; }
+  .pattern .sew { fill: none; stroke: var(--stitch); stroke-width: 2; stroke-dasharray: 9 7; stroke-linejoin: round; }
+  .pattern .detail { fill: none; stroke: var(--stitch); stroke-width: 1.25; opacity: .7; }
+  .pattern .dim line { stroke: var(--tape); stroke-width: 1.5; }
+  .pattern .dim text { fill: var(--tape); font: 500 16px var(--body); }
+  .pattern .tag-small { fill: var(--stitch); font: 400 14px var(--body); }
+  .pattern .tag { fill: var(--chalk); font: 400 32px var(--display); }
+
+  /* One load sequence: the seam is sewn, then the measurements appear */
+  @media (prefers-reduced-motion: no-preference) {
+    .pattern .trace { stroke-dasharray: 1; stroke-dashoffset: 1; animation: sew 1.9s .3s cubic-bezier(.5, 0, .2, 1) forwards; }
+    .pattern .cut, .pattern .inside, .pattern .dim { opacity: 0; animation: appear .6s ease-out forwards; }
+    .pattern .cut { animation-delay: 0s; }
+    .pattern .inside { animation-delay: 1.7s; }
+    .pattern .dim:nth-of-type(1) { animation-delay: 2.1s; }
+    .pattern .dim:nth-of-type(2) { animation-delay: 2.3s; }
+    .pattern .dim:nth-of-type(3) { animation-delay: 2.5s; }
+  }
+  @keyframes sew { to { stroke-dashoffset: 0; } }
+  @keyframes appear { to { opacity: 1; } }
+
+  /* Measuring tape */
+  .tape {
+    height: 34px;
+    background:
+      repeating-linear-gradient(90deg, var(--ink) 0 2px, transparent 2px 60px) 0 0 / 100% 17px no-repeat,
+      repeating-linear-gradient(90deg, var(--ink) 0 1px, transparent 1px 12px) 0 0 / 100% 9px no-repeat,
+      var(--tape);
+  }
+
+  /* ---------- Content bands ---------- */
+  .band { padding-block: clamp(4rem, 9vw, 7rem); }
+  .band-paper { background: var(--paper); }
+  .band-head { max-width: 40rem; margin-bottom: clamp(2rem, 5vw, 3.5rem); }
+  .band-head p { margin-top: 1rem; color: var(--muted); }
+
+  /* How it works: a real sequence, joined by a seam */
+  .steps { display: grid; gap: 2rem; counter-reset: step; border-left: 2px dashed var(--wool); padding-left: 1.5rem; }
+  .steps li { counter-increment: step; }
+  .steps li::before {
+    content: counter(step);
+    display: block; margin-bottom: .5rem;
+    font: 400 3rem/1 var(--display); color: var(--wool);
+  }
+  .steps p { margin-top: .5rem; color: var(--muted); font-size: 1.0625rem; }
+
+  /* Services: a plain list, not cards */
+  .services > div { display: grid; gap: .5rem; padding-block: 1.75rem; border-top: 1px solid var(--rule); }
+  .services > div:last-child { border-bottom: 1px solid var(--rule); }
+  .services dt { font: 400 2rem/1.15 var(--display); }
+  .services dd { color: var(--muted); max-width: 38rem; }
+
+  /* About */
+  .about { display: grid; gap: 2.5rem; align-items: center; }
+  .portrait {
+    aspect-ratio: 4 / 5; width: 100%; max-width: 24rem;
+    display: grid; place-items: center;
+    color: var(--stitch); font: 400 5rem/1 var(--display);
+    background-color: var(--wool);
+    background-image: repeating-linear-gradient(90deg, rgba(255,255,255,.05) 0 1px, transparent 1px 18px);
+    border-radius: 6px; overflow: hidden;
+  }
+  .portrait img { width: 100%; height: 100%; object-fit: cover; }
+  .about-copy p { margin-top: 1.25rem; max-width: 36rem; }
+  .about-copy .credentials { color: var(--muted); font-size: 1rem; }
+
+  /* Contact */
+  .contact { display: grid; gap: 2.5rem; }
+  .contact-copy p { margin-top: 1rem; color: #CBD5E4; max-width: 28rem; }
+  .contact-lines { margin-top: 2rem; display: grid; gap: .5rem; font-size: 1.25rem; }
+  .contact-lines a { text-underline-offset: .3em; }
+
+  .panel { --focus: var(--wool); background: var(--chalk); color: var(--ink); padding: clamp(1.5rem, 4vw, 2.5rem); border-radius: 8px; }
+  .panel form { display: grid; gap: 1.25rem; }
+  .field { display: grid; gap: .4rem; }
+  .field label, .panel legend { font-weight: 600; font-size: 1rem; }
+  .field .optional { font-weight: 400; color: var(--muted); }
+  .panel input[type="text"], .panel input[type="email"], .panel input[type="tel"], .panel textarea {
+    width: 100%; padding: .8rem .9rem;
+    font: inherit; color: var(--ink); background: var(--paper);
+    border: 1.5px solid #B4BFCE; border-radius: 4px;
+  }
+  .panel textarea { min-height: 7.5rem; resize: vertical; }
+  .panel input:focus-visible, .panel textarea:focus-visible { border-color: var(--wool); outline-offset: 1px; }
+  .panel fieldset { border: 0; }
+  .choices { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; margin-top: .5rem; }
+  .choices label { display: inline-flex; align-items: center; gap: .5rem; font-size: 1.0625rem; }
+  .choices input { width: 1.15rem; height: 1.15rem; accent-color: var(--wool); }
+  .panel .btn { justify-self: start; }
+  .form-status { min-height: 1.6em; font-size: 1rem; }
+  .form-status[data-state="error"] { color: #A3261B; }
+
+  /* Footer */
+  .site-footer { --focus: var(--tape); background: var(--wool-deep); color: #AEBACD; font-size: .95rem; padding-block: 2.5rem; }
+  .site-footer .wrap { display: grid; gap: .75rem; }
+  .site-footer .wordmark { color: var(--chalk); font-size: 1.25rem; }
+
+  /* ---------- Wider screens ---------- */
+  @media (min-width: 48rem) {
+    .services > div { grid-template-columns: 16rem 1fr; gap: 2rem; align-items: baseline; }
+    .about { grid-template-columns: minmax(0, 24rem) 1fr; gap: clamp(2.5rem, 6vw, 5rem); }
+    .contact { grid-template-columns: 1fr 1.15fr; gap: clamp(2.5rem, 6vw, 5rem); align-items: start; }
+    .steps { grid-template-columns: repeat(2, 1fr); gap: 2.5rem 3rem; }
+  }
+  @media (min-width: 62rem) {
+    .hero { grid-template-columns: 1.1fr .9fr; gap: 3rem; }
+    .steps { grid-template-columns: repeat(4, 1fr); border-left: 0; padding-left: 0; border-top: 2px dashed var(--wool); padding-top: 1.75rem; }
+  }
+  @media (max-width: 47.99rem) {
+    .site-nav a:not(.btn) { display: none; }
+  }
+  @media (max-width: 30rem) {
+    .site-header { flex-wrap: wrap; gap: .75rem; }
+    .wordmark { font-size: 1.125rem; gap: .45rem; white-space: nowrap; }
+    .wordmark svg { width: 1.3rem; height: 1.3rem; }
+    .site-nav .btn { padding: .6rem .75rem; font-size: .875rem; white-space: nowrap; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="wool">
+  <header class="wrap site-header">
+    <a class="wordmark" href="#top" id="top" aria-label="Suittable Homes, home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 27V13l11-9 11 9v14z" fill="none" stroke="#F4C430" stroke-width="2" stroke-dasharray="3.5 2.5" stroke-linejoin="round"/></svg>
+      Suittable Homes
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="#how">How it works</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a class="btn" href="#contact">Book a consultation</a>
+    </nav>
+  </header>
+
+  <main id="main">
+  <section class="wrap hero">
+    <div class="hero-copy">
+      <h1>A home should fit like it was made for you.</h1>
+      <!-- EDIT: city -->
+      <p>Suittable Homes is a real estate practice in Your City. We start with your measurements (budget, commute, the room you can't live without) and show you only the homes that fit them.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#contact">Book a consultation</a>
+        <a class="quiet" href="#how">See how it works</a>
+      </div>
+    </div>
+
+    <!-- A house drafted as a tailor's pattern piece. The measurements are examples. -->
+    <svg class="pattern" viewBox="0 0 520 560" role="img" aria-label="A house drawn as a sewing pattern, with a buyer's requirements marked as measurements: three bedrooms and two baths, 25 minutes to work, budget under $450k.">
+      <defs>
+        <mask id="seam" maskUnits="userSpaceOnUse" x="0" y="0" width="520" height="560">
+          <path class="trace" pathLength="1" d="M92 468H428V230L260 93 92 230Z" fill="none" stroke="#fff" stroke-width="8"/>
+        </mask>
+      </defs>
+
+      <path class="cut" d="M74 486H446V222L260 70 74 222Z"/>
+      <path class="cut" d="M74 346l-10 8 10 8M446 346l10 8-10 8M252 486l8 10 8-10" style="fill:none"/>
+      <path class="sew" mask="url(#seam)" d="M92 468H428V230L260 93 92 230Z"/>
+
+      <g class="inside">
+        <text class="tag-small" x="260" y="178" text-anchor="middle">Pattern no. 1</text>
+        <text class="tag" x="260" y="216" text-anchor="middle">Your home</text>
+        <path class="detail" d="M135 285h70v70h-70zM170 285v70M135 320h70M315 285h70v70h-70zM350 285v70M315 320h70M232 468v-96h56v96"/>
+        <path class="detail" d="M260 262v84M254 272l6-10 6 10M254 336l6 10 6-10"/>
+      </g>
+
+      <g class="dim">
+        <line x1="48" y1="222" x2="48" y2="486"/><line x1="42" y1="222" x2="54" y2="222"/><line x1="42" y1="486" x2="54" y2="486"/>
+        <text x="32" y="354" text-anchor="middle" transform="rotate(-90 32 354)">3 bedrooms, 2 baths</text>
+      </g>
+      <g class="dim">
+        <line x1="273.9" y1="53" x2="459.9" y2="205"/><line x1="270.1" y1="57.6" x2="277.7" y2="48.4"/><line x1="456.1" y1="209.6" x2="463.7" y2="200.4"/>
+        <text x="375" y="119" text-anchor="middle" transform="rotate(39.3 375 119)">25 minutes to work</text>
+      </g>
+      <g class="dim">
+        <line x1="74" y1="516" x2="446" y2="516"/><line x1="74" y1="510" x2="74" y2="522"/><line x1="446" y1="510" x2="446" y2="522"/>
+        <text x="260" y="542" text-anchor="middle">Budget: under $450k</text>
+      </g>
+    </svg>
+  </section>
+  </main>
+</div>
+
+<div class="tape" aria-hidden="true"></div>
+
+<section class="band" id="how">
+  <div class="wrap">
+    <div class="band-head">
+      <h2>How it works</h2>
+      <p>Four steps, in this order. Most of the work happens in the first one.</p>
+    </div>
+    <ol class="steps">
+      <li>
+        <h3>Take your measurements</h3>
+        <p>One conversation about budget, commute, schools and the things you won't compromise on. Written down, so nothing gets lost.</p>
+      </li>
+      <li>
+        <h3>Try homes on</h3>
+        <p>You tour a short list that matches what you told us. No filler showings to pad the afternoon.</p>
+      </li>
+      <li>
+        <h3>Make alterations</h3>
+        <p>Offer, inspection, repairs, price. We negotiate until the terms fit as well as the house does.</p>
+      </li>
+      <li>
+        <h3>Collect your keys</h3>
+        <p>We track every deadline through closing and stay on the phone until the keys are in your hand.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="band band-paper" id="services">
+  <div class="wrap">
+    <div class="band-head">
+      <h2>What we do</h2>
+    </div>
+    <dl class="services">
+      <div>
+        <dt>Buying</dt>
+        <dd>A search built from your measurements, private showings, and an offer strategy based on what comparable homes actually sold for.</dd>
+      </div>
+      <div>
+        <dt>Selling</dt>
+        <dd>Pricing from recent local sales, advice on which repairs earn back their cost, professional photography, and negotiation through closing.</dd>
+      </div>
+      <div>
+        <dt>Relocating</dt>
+        <!-- EDIT: city -->
+        <dd>Moving to Your City from somewhere else? Video walkthroughs, neighborhood briefings, and a schedule that fits your viewings into one trip.</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<section class="band" id="about">
+  <div class="wrap about">
+    <!-- EDIT: replace the initials with a photo: <img src="realtor.jpg" alt="Lara"> -->
+    <div class="portrait" aria-hidden="true">L</div>
+    <div class="about-copy">
+      <h2>Who you'll work with</h2>
+      <!-- EDIT: bio -->
+      <p>I'm Lara, the agent behind Suittable Homes. I work with a small number of clients at a time so every search gets a proper fitting: a long first conversation, an honest shortlist, and straight answers about what a house will cost you to own.</p>
+      <p>If a home doesn't fit, I'll say so, even when you love the kitchen.</p>
+      <!-- EDIT: last name, license number and brokerage -->
+      <p class="credentials">Lara Lastname, licensed real estate agent, License #0000000. Brokered by Brokerage Name.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wool band" id="contact">
+  <div class="wrap contact">
+    <div class="contact-copy">
+      <h2>Tell us what you're looking for</h2>
+      <p>A few lines is enough to start. The first consultation is free and takes about half an hour.</p>
+      <!-- EDIT: phone -->
+      <div class="contact-lines">
+        <a href="tel:+15555550100">(555) 555-0100</a>
+        <a href="mailto:lara@suittablehomes.com">lara@suittablehomes.com</a>
+      </div>
+    </div>
+
+    <div class="panel">
+      <form id="contact-form" novalidate>
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="phone">Phone <span class="optional">(optional)</span></label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel">
+        </div>
+        <fieldset>
+          <legend>I'm looking to</legend>
+          <div class="choices">
+            <label><input type="radio" name="intent" value="Buy" checked> Buy</label>
+            <label><input type="radio" name="intent" value="Sell"> Sell</label>
+            <label><input type="radio" name="intent" value="Buy and sell"> Both</label>
+            <label><input type="radio" name="intent" value="Relocate"> Relocate</label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="message">What does the right home look like?</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button class="btn" type="submit">Send message</button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span class="wordmark">Suittable Homes</span>
+    <!-- EDIT: license, brokerage, year -->
+    <p>License #0000000. Brokered by Brokerage Name. Equal Housing Opportunity.</p>
+    <p>&copy; 2026 Suittable Homes</p>
+  </div>
+</footer>
+
+<script>
+  // EDIT: where the contact form goes.
+  // FORM_ENDPOINT: URL of a Worker or Pages Function that accepts a JSON POST (e.g. "/api/contact").
+  // Leave it empty and the form opens the visitor's email app addressed to CONTACT_EMAIL instead.
+  const FORM_ENDPOINT = "";
+  const CONTACT_EMAIL = "lara@suittablehomes.com";
+
+  const form = document.getElementById("contact-form");
+  const status = document.getElementById("form-status");
+
+  function say(text, state) {
+    status.textContent = text;
+    status.dataset.state = state || "";
+  }
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const missing = [...form.querySelectorAll("[required]")].find((el) => !el.checkValidity());
+    if (missing) {
+      const label = form.querySelector(`label[for="${missing.id}"]`).textContent.trim();
+      say(missing.validity.typeMismatch ? "Enter a valid email address." : `Fill in "${label}" to send your message.`, "error");
+      missing.focus();
+      return;
+    }
+
+    const data = Object.fromEntries(new FormData(form));
+
+    if (!FORM_ENDPOINT) {
+      const body = `${data.message}\n\nLooking to: ${data.intent}\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone || "not given"}`;
+      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Consultation request from " + data.name)}&body=${encodeURIComponent(body)}`;
+      say("Your email app should open with the message ready to send.");
+      return;
+    }
+
+    const button = form.querySelector("button");
+    button.disabled = true;
+    say("Sending message…");
+    try {
+      const response = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!response.ok) throw new Error(response.status);
+      form.reset();
+      say("Message sent. We'll be in touch.");
+    } catch {
+      say("Message not sent. Check your connection and try again, or call the number on this page.", "error");
+    } finally {
+      button.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>
